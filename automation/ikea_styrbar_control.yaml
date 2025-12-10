@@ -327,7 +327,7 @@ action:
         - rgb_color: !input color_5
         - rgb_color: !input color_6
         - rgb_color: !input color_7
-        - rgb_auto: !input color_8
+        - rgb_color: !input color_8
       color_list_len: "{{ color_list | count }}"
       color_index_helper: !input color_cycle_index
 
