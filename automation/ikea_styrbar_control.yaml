@@ -9,7 +9,6 @@ blueprint:
       name: Zooz ZEN37 Remote
       description: Select your Zooz ZEN37 device (Z-Wave JS)
           integration: zwave_js
-
           multiple: false
 
     targets:
