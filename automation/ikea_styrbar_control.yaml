@@ -11,8 +11,6 @@ blueprint:
       selector:
         device:
           integration: zwave_js
-          manufacturer: 
-          model: 
           multiple: false
 
     targets:
