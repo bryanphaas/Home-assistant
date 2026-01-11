@@ -11,8 +11,7 @@ blueprint:
       selector:
         device:
           integration: zwave_js
-          manufacturer: Zooz
-          model: ZEN37 800LR
+
           multiple: false
 
     targets:
