@@ -11,7 +11,8 @@ blueprint:
       selector:
         device:
           integration: zwave_js
-
+          manufacturer: Zooz
+          model: ZEN37
           multiple: false
 
     targets:
@@ -186,29 +187,33 @@ blueprint:
 mode: restart
 
 # --- Z-Wave JS Triggers ---
-# KeyPressed = 0, KeyReleased = 1, KeyHeldDown = 2
+# Note on Z-Wave JS Central Scene Values:
+# 0 = Key Pressed (Single Tap)
+# 1 = Key Released
+# 2 = Key Held Down
+# 3 = Key Pressed 2x (Double Tap) - Not used here but good to know
 trigger:
   # Button 1 (Top Left) - ON / UP
   - platform: event
     event_type: zwave_js_value_notification
     event_data:
       device_id: !input zwave_device
-      property_key_name: "001"
-      value: 0
+      property_key_name: "Scene 001"
+      value: 0 # Key Pressed
     id: "on"
   - platform: event
     event_type: zwave_js_value_notification
     event_data:
       device_id: !input zwave_device
-      property_key_name: "001"
-      value: 2
+      property_key_name: "Scene 001"
+      value: 2 # Key Held Down
     id: "brightness_move_up"
   - platform: event
     event_type: zwave_js_value_notification
     event_data:
       device_id: !input zwave_device
-      property_key_name: "001"
-      value: 1
+      property_key_name: "Scene 001"
+      value: 1 # Key Released
     id: "brightness_stop"
 
   # Button 2 (Top Right) - OFF / DOWN
@@ -216,22 +221,22 @@ trigger:
     event_type: zwave_js_value_notification
     event_data:
       device_id: !input zwave_device
-      property_key_name: "002"
-      value: 0
+      property_key_name: "Scene 002"
+      value: 0 # Key Pressed
     id: "off"
   - platform: event
     event_type: zwave_js_value_notification
     event_data:
       device_id: !input zwave_device
-      property_key_name: "002"
-      value: 2
+      property_key_name: "Scene 002"
+      value: 2 # Key Held Down
     id: "brightness_move_down"
   - platform: event
     event_type: zwave_js_value_notification
     event_data:
       device_id: !input zwave_device
-      property_key_name: "002"
-      value: 1
+      property_key_name: "Scene 002"
+      value: 1 # Key Released
     id: "brightness_stop"
 
   # Button 3 (Bottom Left) - PREV COLOR / COOLER
@@ -239,22 +244,22 @@ trigger:
     event_type: zwave_js_value_notification
     event_data:
       device_id: !input zwave_device
-      property_key_name: "003"
-      value: 0
+      property_key_name: "Scene 003"
+      value: 0 # Key Pressed
     id: "arrow_left_click"
   - platform: event
     event_type: zwave_js_value_notification
     event_data:
       device_id: !input zwave_device
-      property_key_name: "003"
-      value: 2
+      property_key_name: "Scene 003"
+      value: 2 # Key Held Down
     id: "arrow_left_hold"
   - platform: event
     event_type: zwave_js_value_notification
     event_data:
       device_id: !input zwave_device
-      property_key_name: "003"
-      value: 1
+      property_key_name: "Scene 003"
+      value: 1 # Key Released
     id: "arrow_left_release"
 
   # Button 4 (Bottom Right) - NEXT COLOR / WARMER
@@ -262,22 +267,22 @@ trigger:
     event_type: zwave_js_value_notification
     event_data:
       device_id: !input zwave_device
-      property_key_name: "004"
-      value: 0
+      property_key_name: "Scene 004"
+      value: 0 # Key Pressed
     id: "arrow_right_click"
   - platform: event
     event_type: zwave_js_value_notification
     event_data:
       device_id: !input zwave_device
-      property_key_name: "004"
-      value: 2
+      property_key_name: "Scene 004"
+      value: 2 # Key Held Down
     id: "arrow_right_hold"
   - platform: event
     event_type: zwave_js_value_notification
     event_data:
       device_id: !input zwave_device
-      property_key_name: "004"
-      value: 1
+      property_key_name: "Scene 004"
+      value: 1 # Key Released
     id: "arrow_right_release"
 
 action:
