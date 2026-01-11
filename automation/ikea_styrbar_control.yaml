@@ -11,7 +11,7 @@ blueprint:
       selector:
         device:
           integration: zwave_js
-          manufacturer: Zooz
+          manufacturer: 
           model: 
           multiple: false
 
